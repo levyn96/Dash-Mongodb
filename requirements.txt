@@ -1,0 +1,5 @@
+dash==1.5.1
+gunicorn==19.9.0
+pandas==0.25.2
+xlrd==1.2.0
+requests==2.22.0
