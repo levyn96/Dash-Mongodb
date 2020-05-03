@@ -20,7 +20,6 @@ def layout():
     col_list = list(data[0].keys())
     print(data)
     print(col_list)
-    # df = pd.DataFrame(list(projects_collection.find()))
     df = pd.DataFrame(data, columns=col_list)
 
     print("this is the data frame : ")
@@ -36,10 +35,6 @@ def layout():
         html.Div(id='message-div'),
         html.Div(
             [
-                # html.Div([
-                #     html.Img(src='/assets/header.jpeg')
-                #     ], style={'float': 'right'}
-                # ),
                 dash_table.DataTable(
                     id='datatable-interactivity',
                     columns=[
@@ -171,7 +166,7 @@ def submit_new_project(submit, project_id, project_name, project_worker, project
 
     if project_id and project_name and  project_worker and project_address and real_estate_developer and report_number:
         client = MongoClient()
-        db = client["Kaveret"]
+        db = client["projects_db"]
         projects_collection = db["ProjectsCollection"]
         projects_collection.insert_one({"ID": project_id,
                                         "worker": project_worker,
